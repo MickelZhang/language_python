@@ -24,6 +24,7 @@ https://www.cnblogs.com/maybe2030/p/4715035.html
 
 1.首先分析程序的瓶颈在什么地方
 cProfile 
+https://docs.python.org/zh-cn/3/library/profile.html  官方教程
 https://www.ibm.com/developerworks/cn/linux/l-cn-python-optim/  
 http://love67.net/2016/03/08/python-profile  
 
@@ -31,5 +32,7 @@ http://love67.net/2016/03/08/python-profile
 
 
 3.编写代码时，基本的效率提升手段
+
+
 
 
