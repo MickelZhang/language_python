@@ -41,6 +41,14 @@ https://time.geekbang.org/column/article/189201
 
 
 http://www.uml.org.cn/python/201801302.asp   19个高效小技巧
+技巧：列表拷贝使用list()新建而不要使用copy模块。基于性能来说copy模块在复制数据的时候悬疑先对数据类型判断，而list内奸的方法则不需要
+大数据处理时，生成器比列表推导式更快 （列表推导式一次性加载所有的数据到内存中），生成器则不会讲所有的值一次性加到内存中，采用延迟计算的方式
+每次处理一个对象，在用的时候创建临时区，遍历结束后删除清空临时去，减少内存开销   
+生成器的使用场景：第一次调用之后会清空缓存区，因此当只需要使用一次数据时，采用生成器的方法比较合适，若多次使用生产的数据则建议使用列表推导式
+
+字符串拼接使用join而不是+   join效率高   
+
+python3.6以后的版本使用F-string 替代format做格式化操作   前者稍微快以点
 
 
 github使用指南：https://docs.github.com/cn/free-pro-team@latest/github/administering-a-repository/setting-repository-visibility 
