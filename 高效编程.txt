@@ -79,7 +79,7 @@ github使用指南：https://docs.github.com/cn/free-pro-team@latest/github/admi
 https://www.jianshu.com/p/a0d273550f70 
 
 
-https://geek-docs.com/python/python-examples/python-objects-is-and.html 
+https://geek-docs.com/python/python-examples/python-objects-is-and.html       曦曦看这里
 is 和 == ：
 当两个变量指向同一个对象时，is表达式的结果为True；
 当各变量指向的对象含有相同内容时，==表达式的结果为True。
