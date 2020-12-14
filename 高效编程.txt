@@ -77,3 +77,77 @@ github使用指南：https://docs.github.com/cn/free-pro-team@latest/github/admi
 
 空值判断：
 https://www.jianshu.com/p/a0d273550f70 
+
+
+https://geek-docs.com/python/python-examples/python-objects-is-and.html 
+is 和 == ：
+当两个变量指向同一个对象时，is表达式的结果为True；
+当各变量指向的对象含有相同内容时，==表达式的结果为True。
+
+开发环境，测试环境中加assert,正式版本不要添加
+使用断言验证输入数据非常危险 （导致错误，产生安全问题）， 永不失败的断言
+
+打开文件操作时，使用with,能够自动关闭，简化资源的获取和释放
+
+some_lock = threading.Lock()
+ 使用with,而不需要写try...finally
+ 
+ 下划线：
+ _var ：可以进行变量访问，前置下划线影响从模块导入名称的方式（from XXX import *，不会导入带有前置单下划线的名称，除非__all__列表覆盖了这个行为）
+ var_ ：用一个后置单下划线来避免与python关键字的命名冲突是一个约定
+ __var ：双下划线前缀会让python解释器重写属性名称，以避免子类中的命名冲突，也叫名称改写（解释器会更改变量的名称，以便在稍后扩展这个类时避免命名冲突）
+class Test:
+    def __init__(self):
+        self.foo = 12
+        self._bar = 23
+        self.__baz = 42
+
+t = Test()
+print(dir(t))
+['_Test__baz', '__class__', '__delattr__', '__dict__',
+ '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
+ '__getattribute__', '__gt__', '__hash__', '__init__',
+ '__le__', '__lt__', '__module__', '__ne__', '__new__',
+ '__reduce__', '__reduce_ex__', '__repr__',
+ '__setattr__', '__sizeof__', '__str__',
+ '__subclasshook__', '__weakref__', '_bar', 'foo']
+ 
+ 首先，self.foo变量没有改动，在属性列表中显示为foo。
+
+接着，self._bar也一样，在类中显示为_bar。前面说了，在这种情况下前置下划线仅仅是一个约定，是对程序员的一个提示。
+
+然而self.__baz就不一样了。在该列表中找不到__baz这个变量。
+__baz到底发生了什么？
+
+仔细观察就会看到，这个对象上有一个名为_Test__baz的属性。这是Python解释器应用名称改写之后的名称，是为了防止子类覆盖这些变量。
+
+接着创建另一个类来扩展Test类，并尝试覆盖之前构造函数中添加的属性：
+
+class ExtendTest(Test):
+    def __init__(self):
+        super().__init__()
+        self.foo = "overridden"
+        self.bar = "overridden"
+        self.__baz = "overridden"
+
+t2 = ExtendTest()
+print(t2.foo,t2.bar)
+print(t2.__baz)  #AttributeError: 'ExtendTest' object has no attribute '__baz'
+print(t._Test__baz, t2._ExtendTest__baz)  # 可以运行
+ __var__ ：双下划线通常被称为魔法方法，变量正常范文，不受解释器的影响 定义的特殊方法
+ _ ：表示变量是临时或者是无关紧要的，也可用作占位符变量
+ 
+
+函数可以嵌套，并且可以捕获并携带父函数的一些状态。具有这种行为的函数称为闭包。
+
+
+根据添加筛选数据的时候使用列表解析式 速度快
+[x for x in data if x>0]
+{k:v for k,v in data.iteritems() if v >90}
+{x for x in s if x%3 == 0}
+
+两种合并列表的操作
+update   **    **速度更快，可以在一个表达式中合并多个字典对象，现有键从左向右依次覆盖
+
+
+
