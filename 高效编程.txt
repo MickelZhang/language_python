@@ -150,4 +150,6 @@ print(t._Test__baz, t2._ExtendTest__baz)  # 可以运行
 update   **    **速度更快，可以在一个表达式中合并多个字典对象，现有键从左向右依次覆盖
 
 
+all 使用方法  所有元素都为真则是true  否则flase
 
+python  相关案例： https://github.com/jackzhenguo/python-small-examples   有对应的版权限制，详细核对
